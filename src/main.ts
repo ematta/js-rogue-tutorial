@@ -1,11 +1,11 @@
 import { Engine } from "./engine";
 
+declare global {
+  interface Window {
+    engine: Engine;
+  }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
-  const engine = new Engine();
-
-  const container = engine.display.getContainer()!;
-
-  document.body.appendChild(container);
-
-  engine.render();
+  window.engine = new Engine();
 })
